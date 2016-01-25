@@ -38,6 +38,7 @@ fi
 
 twm &
 exec xbindkeys &
+sh ~/.fehbg &
 exec i3
 #xclock -geometry 50x50-1+1 &
 #xterm -geometry 80x50+494+51 &
