@@ -78,12 +78,27 @@ shift + XF86MonBrightnessUp
 shift + XF86MonBrightnessDown
 
 #"amixer -D pulse sset Master 5%+"
-"amixer set Master 1dB+"
+#"amixer set Master 1dB+"
+"sh -c 'pactl set-sink-mute 0 false ; pactl set-sink-volume 0 +5%'"
 XF86AudioRaiseVolume
 
 #"amixer -D pulse sset Master 5%-"
-"amixer set Master 1dB-"
+#"amixer set Master 1dB-"
+"sh -c 'pactl set-sink-mute @DEFAULT_SINK@ false ; pactl set-sink-volume @DEFAULT_SINK@ -5%'"
 XF86AudioLowerVolume
+
+"sh -c 'pactl set-sink-mute @DEFAULT_SINK@ false ; pactl set-sink-volume @DEFAULT_SINK@ +0.5%'"
+shift + XF86AudioRaiseVolume
+
+"sh -c 'pactl set-sink-mute @DEFAULT_SINK@ false ; pactl set-sink-volume @DEFAULT_SINK@ -0.5%'"
+shift + XF86AudioLowerVolume
+
+"systemctl suspend"
+Mod4 + F1
+
+"touchpad_toggle.sh"
+shift + Menu
+
 ##################################
 # End of xbindkeys configuration #
 ##################################
