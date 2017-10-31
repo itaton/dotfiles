@@ -79,7 +79,8 @@ shift + XF86MonBrightnessDown
 
 #"amixer -D pulse sset Master 5%+"
 #"amixer set Master 1dB+"
-"sh -c 'pactl set-sink-mute 0 false ; pactl set-sink-volume 0 +5%'"
+#"sh -c 'pactl set-sink-mute 0 false ; pactl set-sink-volume 0 +5%'"
+"sh -c 'pactl set-sink-mute @DEFAULT_SINK@ false ; pactl set-sink-volume @DEFAULT_SINK@ +5%'"
 XF86AudioRaiseVolume
 
 #"amixer -D pulse sset Master 5%-"
@@ -93,11 +94,24 @@ shift + XF86AudioRaiseVolume
 "sh -c 'pactl set-sink-mute @DEFAULT_SINK@ false ; pactl set-sink-volume @DEFAULT_SINK@ -0.5%'"
 shift + XF86AudioLowerVolume
 
+"sh -c 'pactl set-sink-mute @DEFAULT_SINK@ toggle'"
+XF86AudioMute
+
+#"systemctl suspend"
+#Mod4 + F1
+
 "systemctl suspend"
-Mod4 + F1
+m:0x51 + c:133 #Shift + F1
 
 "touchpad_toggle.sh"
 shift + Menu
+
+#The following two change the mod key for i3 between alt and win
+"cp ~/.config/i3/config.alt ~/.config/i3/config && i3-msg reload"
+m:0x50 + c:33 #F4
+
+"cp ~/.config/i3/config.win ~/.config/i3/config && i3-msg reload"
+Mod2 + F4 #fn + F4
 
 ##################################
 # End of xbindkeys configuration #

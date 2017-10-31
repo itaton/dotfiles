@@ -11,13 +11,66 @@ mkcd() {
     mkdir $1
     cd $1
 }
+countdown(){ #http://superuser.com/questions/611538/is-there-a-way-to-display-a-countdown-or-stopwatch-timer-in-a-terminal
+    date1=$((`date +%s` + $1));
+    while [ "$date1" -ge `date +%s` ]; do
+        echo -ne "$(date -u --date @$(($date1 - `date +%s`)) +%H:%M:%S)\r";
+        sleep 0.5
+    done
+    aplay -q /usr/lib/libreoffice/share/gallery/sounds/theetone.wav #end-sound TODO non portable
+}
+twitch(){ #https://stackoverflow.com/questions/9332802/how-to-write-a-bash-script-that-takes-optional-input-arguments
+    streamlink https://www.twitch.tv/$1 ${2:-720p}
+}
+setcolor(){ #sets color of external monitor that supports DDC
+    ddcutil setvcp 16 $1;
+    ddcutil setvcp 18 $2;
+    ddcutil setvcp 1A $3;
+}
+
 alias ls='ls --color=auto'
 alias ll='ls -hal'
-alias cd='cd -P'
-alias i3lock='i3lock -c 000000'
+alias cd='cd -P' #don't follow symlinks
+alias mv='mv -i' #prompt before overwrite
+
+alias i3lock='i3lock -c 000000' #black background to save energy
+
 alias gc='git commit -m'
 alias ga='git add .'
 alias gg='git pull'
 alias gp='git push'
+alias gits='git status'
+alias pulldiff='git diff @{1}..' #https://stackoverflow.com/questions/61002/how-can-i-generate-a-git-diff-of-whats-changed-since-the-last-time-i-pulled
+
 alias cal='cal -n6 -m'
-PS1='[\u@\h \W]\$ '
+alias nuke='shred -uz'
+alias sshpi='ssh -t alarm@172.19.48.146 "stty sane; export TERM=linux; exec $SHELL"'
+
+alias sd='pwd > ~/.lastDir' #saveWorkingDir
+alias rd='cd $(cat ~/.lastDir)' #restoreWorkingDir
+
+alias ds='du -h --max-depth=1 | sort -h'
+alias df='df -h'
+
+alias feh='feh -.' #Automatically fit images to window-size
+alias grep='grep --color'
+
+PS1='[\u@\h \W]\$ ' #configuration for terminal prompt
+
+stty -ixon #needed for ctrl-r in terminal, iirc?
+
+man() { #colors for man
+    LESS_TERMCAP_md=$'\e[01;31m' \
+    LESS_TERMCAP_me=$'\e[0m' \
+    LESS_TERMCAP_se=$'\e[0m' \
+    LESS_TERMCAP_so=$'\e[01;44;33m' \
+    LESS_TERMCAP_ue=$'\e[0m' \
+    LESS_TERMCAP_us=$'\e[01;32m' \
+    command man "$@"
+}
+
+export HISTIGNORE=' *' #do not include commands starting with ' ' in history
+
+#enables vi editing on readline when using bash (https://wiki.archlinux.org/index.php/Readline)
+set -o vi 
+bind -m vi-insert "\C-l":clear-screen #https://unix.stackexchange.com/questions/104094/is-there-any-way-to-enable-ctrll-to-clear-screen-when-set-o-vi-is-set
