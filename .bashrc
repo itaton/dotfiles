@@ -28,6 +28,25 @@ setcolor(){ #sets color of external monitor that supports DDC
     ddcutil setvcp 1A $3;
 }
 
+ddc(){
+    if [ $1 == '1' ]
+    then
+        ddcutil loadvcp ~/notes/ddc/DDC_day;
+    fi
+    if [ $1 == '2' ]
+    then
+        ddcutil loadvcp ~/notes/ddc/DDC_morning;
+    fi
+    if [ $1 == '3' ]
+    then
+        ddcutil loadvcp ~/notes/ddc/DDC_night;
+    fi
+    if [ $1 == '4' ]
+    then
+        ddcutil loadvcp ~/notes/ddc/DDC_extreme;
+    fi
+}
+
 alias ls='ls --color=auto'
 alias ll='ls -hal'
 alias cd='cd -P' #don't follow symlinks

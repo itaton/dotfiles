@@ -36,13 +36,12 @@ if [ -d /etc/X11/xinit/xinitrc.d ] ; then
  unset f
 fi
 
-twm & #TODO what does this do?
-#exec xbindkeys &
 xbindkeys &
 sh ~/.fehbg &
-bash ~/bin/startup #Execute some startup scripts; TODO: see if xset commands work properly
+bash ~/bin/startup #Execute some startup scripts
 exec i3
 
+#twm &
 #xclock -geometry 50x50-1+1 &
 #xterm -geometry 80x50+494+51 &
 #xterm -geometry 80x20+494-0 &
