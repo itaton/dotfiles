@@ -108,10 +108,10 @@ shift + Menu
 
 #The following two change the mod key for i3 between alt and win
 "cp ~/.config/i3/config.alt ~/.config/i3/config && i3-msg reload"
-m:0x50 + c:33 #F4
+Mod2 + F4 #F4
 
 "cp ~/.config/i3/config.win ~/.config/i3/config && i3-msg reload"
-Mod2 + F4 #fn + F4
+m:0x50 + c:33 #fn + F4
 
 ##################################
 # End of xbindkeys configuration #
