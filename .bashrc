@@ -64,7 +64,7 @@ alias pulldiff='git diff @{1}..' #https://stackoverflow.com/questions/61002/how-
 
 alias cal='cal -n6 -m'
 alias nuke='shred -uz'
-alias sshpi='ssh -t alarm@172.19.48.146 "stty sane; export TERM=linux; exec $SHELL"'
+alias sshpi='ssh -t alarm@100.85.133.21 "stty sane; export TERM=linux; exec $SHELL"'
 
 alias sd='pwd > ~/.lastDir' #saveWorkingDir
 alias rd='cd $(cat ~/.lastDir)' #restoreWorkingDir
