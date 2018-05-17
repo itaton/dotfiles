@@ -40,7 +40,8 @@
 # Examples of commands:
 
 "xbindkeys_show" 
-  control+shift + s #This was Ctrl+Shift+q but this is interfering w/ kitty tabs
+  control + shift + s
+#This was Ctrl+Shift+Q but this is interfering w/ kitty tabs
 
 # set directly keycode (here control + f with my keyboard)
 #"xterm"
