@@ -30,7 +30,8 @@ font pango:monospace 8
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec i3-sensible-terminal -bg rgb:00/2b/36 -fg rgb:83/94/96
+#bindsym $mod+Return exec i3-sensible-terminal -bg rgb:00/2b/36 -fg rgb:83/94/96
+bindsym $mod+Return exec kitty /bin/zsh
 
 ###
 #move workspaces between displays
