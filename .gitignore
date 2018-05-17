@@ -1,0 +1,15 @@
+*
+!/symlinks/
+!/symlinks/.bash_profile
+!/symlinks/.bashrc
+!/symlinks/.fehbg
+!/symlinks/.i3status.conf
+!/symlinks/.xbindkeysrc
+!/symlinks/.xinitrc
+!/symlinks/.zshrc
+!/i3/
+!/i3/*
+!/kitty/
+!/kitty/*
+!/commonProfile
+!/.gitignore
