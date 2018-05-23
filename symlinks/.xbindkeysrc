@@ -114,6 +114,15 @@ Mod2 + F4 #F4
 "cp ~/.config/i3/config.win ~/.config/i3/config && i3-msg reload"
 m:0x50 + c:33 #fn + F4
 
+"playerctl play-pause"
+XF86AudioPlay
+
+"playerctl next"
+XF86AudioNext
+
+"playerctl previous"
+XF86AudioPrev
+
 ##################################
 # End of xbindkeys configuration #
 ##################################
