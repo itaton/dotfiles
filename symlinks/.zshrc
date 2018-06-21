@@ -10,6 +10,7 @@ ZSH=/usr/share/oh-my-zsh/
 #ZSH_THEME="robbyrussell"
 #ZSH_THEME="agnoster"
 source /usr/share/zsh-theme-powerlevel9k/powerlevel9k.zsh-theme
+POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status command_execution_time root_indicator background_jobs history time)
 #https://github.com/bhilburn/powerlevel9k/wiki/Install-Instructions#arch-linux
 
 # Set list of themes to load
